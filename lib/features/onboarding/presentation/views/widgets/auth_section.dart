@@ -14,6 +14,9 @@ class AuthSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomTextButton(
+          onPressed: () {
+            GoRouter.of(context).push(AppRouters.signupView);
+          },
           color: Colors.white,
           textColor: kPrimaryColor,
           text: 'Create Account',
