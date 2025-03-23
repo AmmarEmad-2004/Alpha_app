@@ -4,6 +4,7 @@ import 'package:alpha_app/core/utils/styles.dart';
 import 'package:alpha_app/features/auth/presentation/views/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -17,17 +18,17 @@ class LoginViewBody extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 100),
-        
+
             Image.asset(
               AppImages.imagesLogo,
               height: 175.h,
               width: 175.w,
               fit: BoxFit.contain,
             ),
-        
+
+            // SvgPicture.asset('assets/images/logo.svg').
             SizedBox(height: 55),
             LoginForm(),
-        
 
             SizedBox(height: 27),
             Row(
@@ -53,4 +54,3 @@ class LoginViewBody extends StatelessWidget {
     );
   }
 }
-
