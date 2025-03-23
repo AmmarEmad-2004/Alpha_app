@@ -4,7 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class Styles {
   static var textStyleReqular = TextStyle(
-    fontSize: 10,
+    fontSize: 10.sp,
+    fontFamily: kHelveticaFont,
+    fontWeight: FontWeight.w400,
+  );
+  static var textStyle14 = TextStyle(
+    fontSize: 14.sp,
+    color: iColor,
     fontFamily: kHelveticaFont,
     fontWeight: FontWeight.w400,
   );

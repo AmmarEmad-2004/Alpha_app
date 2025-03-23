@@ -7,18 +7,20 @@ class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
     super.key,
     required this.text,
-    this.color = kPrimaryColor,
-    required this.textColor,
+    this.color = Colors.red,
+    this.textColor = Colors.white,
     this.sideColor = kPrimaryColor,
+    this.onPressed,
   });
 
   final String text;
+  final void Function()? onPressed;
   final Color color, textColor, sideColor;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity, // جعل الزر يمتد بكامل العرض
+      width: double.infinity,
       height: 50.h,
       child: TextButton(
         style: TextButton.styleFrom(
@@ -27,11 +29,11 @@ class CustomTextButton extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 12.h),
           shape: RoundedRectangleBorder(
             side: BorderSide(color: sideColor, width: 1.5),
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(10.r),
           ),
         ),
-        onPressed: () {},
-        child: Text(text, style: Styles.textStyle18),
+        onPressed: onPressed,
+        child: Text(text, style: Styles.textStyle18.copyWith(color: textColor)),
       ),
     );
   }

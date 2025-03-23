@@ -1,6 +1,8 @@
-import 'package:alpha_app/core/utils/constants.dart';
+import 'package:alpha_app/core/utils/app_images.dart';
+
 import 'package:alpha_app/core/utils/styles.dart';
-import 'package:alpha_app/core/widgets/custom_text_buttom.dart';
+
+import 'package:alpha_app/features/onboarding/presentation/views/widgets/auth_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,7 +21,7 @@ class OnboardingViewBody extends StatelessWidget {
             flex: 4, // تعيين flex ليوازن المساحات
             child: SvgPicture.asset(
               fit: BoxFit.contain,
-              kOnboardingLogo,
+              AppImages.imagesBro,
               height: 300.h,
               width: 300.w,
             ),
@@ -40,22 +42,7 @@ class OnboardingViewBody extends StatelessWidget {
           SizedBox(height: 20.h),
           Expanded(
             flex: 2, // جعل الأزرار تأخذ جزء مناسب من الشاشة
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomTextButton(
-                  color: Colors.white,
-                  textColor: kPrimaryColor,
-                  text: 'Create Account',
-                ),
-                SizedBox(height: 10.h),
-                CustomTextButton(
-                  textColor: Colors.white,
-                  sideColor: Colors.white,
-                  text: 'Log In as Guest',
-                ),
-              ],
-            ),
+            child: AuthSection(),
           ),
           SizedBox(height: 40.h),
         ],
@@ -63,5 +50,3 @@ class OnboardingViewBody extends StatelessWidget {
     );
   }
 }
-
-
