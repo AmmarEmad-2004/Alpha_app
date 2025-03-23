@@ -1,7 +1,9 @@
+import 'package:alpha_app/core/utils/app_routers.dart';
 import 'package:alpha_app/core/widgets/custom_text_buttom.dart';
 import 'package:alpha_app/features/auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});
@@ -18,7 +20,12 @@ class SignUpForm extends StatelessWidget {
         SizedBox(height: 25.h),
         CustomTextField(hintText: 'Pasword', icon: Icons.visibility),
         SizedBox(height: 41.h),
-        CustomTextButton(text: 'Create Account'),
+        CustomTextButton(
+          onPressed: () {
+            GoRouter.of(context).push(AppRouters.homeView);
+          },
+          text: 'Create Account',
+        ),
       ],
     );
   }
