@@ -35,6 +35,7 @@ abstract class Styles {
 
   static var textStyle24 = TextStyle(
     fontSize: 24.sp,
+    color: Color(0xff19191B),
     fontFamily: kHelveticaFont,
     fontWeight: FontWeight.bold,
   );
