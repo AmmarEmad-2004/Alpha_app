@@ -9,9 +9,9 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: HomeViewBody(),
 
-      bottomNavigationBar: BottomNavigationBar(
-        items: [BottomNavigationBarItem(icon: icon)],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   // items: [BottomNavigationBarItem(icon: Icons.home)],
+      // ),
     );
   }
 }
