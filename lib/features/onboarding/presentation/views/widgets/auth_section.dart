@@ -1,5 +1,6 @@
 import 'package:alpha_app/core/utils/app_routers.dart';
 import 'package:alpha_app/core/utils/constants.dart';
+import 'package:alpha_app/core/utils/styles.dart';
 import 'package:alpha_app/core/widgets/custom_text_buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,6 +18,7 @@ class AuthSection extends StatelessWidget {
           onPressed: () {
             GoRouter.of(context).push(AppRouters.signupView);
           },
+          style: Styles.textStyle18,
           color: Colors.white,
           textColor: kPrimaryColor,
           text: 'Create Account',
@@ -27,6 +29,7 @@ class AuthSection extends StatelessWidget {
             debugPrint("Navigating to loginView");
             GoRouter.of(context).push(AppRouters.loginView);
           },
+          style: Styles.textStyle18,
           color: kPrimaryColor,
           textColor: Colors.white,
           sideColor: Colors.white,

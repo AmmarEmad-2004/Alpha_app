@@ -1,16 +1,25 @@
+import 'package:alpha_app/core/utils/app_routers.dart';
 import 'package:alpha_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BookItem extends StatelessWidget {
-  const BookItem({super.key});
-
+  const BookItem({
+    super.key,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
+  });
+  final CrossAxisAlignment crossAxisAlignment;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
-      child: Expanded(
+
+      child: GestureDetector(
+        onTap: () {
+          GoRouter.of(context).push(AppRouters.bookDetailsView);
+        },
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: crossAxisAlignment,
           children: [
             Container(
               decoration: BoxDecoration(

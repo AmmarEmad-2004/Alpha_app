@@ -1,5 +1,5 @@
 import 'package:alpha_app/core/utils/constants.dart';
-import 'package:alpha_app/core/utils/styles.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,17 +11,20 @@ class CustomTextButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.sideColor = kPrimaryColor,
     this.onPressed,
+    this.height = 50,required this.style,
   });
 
   final String text;
   final void Function()? onPressed;
   final Color color, textColor, sideColor;
+  final double height;
+  final TextStyle style;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 50.h,
+      height: height.h,
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: color,
@@ -33,7 +36,7 @@ class CustomTextButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: Text(text, style: Styles.textStyle18.copyWith(color: textColor)),
+        child: Text(text, style: style.copyWith(color: textColor)),
       ),
     );
   }

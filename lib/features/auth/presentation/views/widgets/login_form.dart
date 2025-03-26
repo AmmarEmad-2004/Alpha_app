@@ -1,4 +1,5 @@
 import 'package:alpha_app/core/utils/app_routers.dart';
+import 'package:alpha_app/core/utils/styles.dart';
 import 'package:alpha_app/core/widgets/custom_text_buttom.dart';
 import 'package:alpha_app/features/auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class LoginForm extends StatelessWidget {
           onPressed: () {
             GoRouter.of(context).push(AppRouters.homeView);
           },
+          style: Styles.textStyle18,
           text: 'Log In',
         ),
       ],
