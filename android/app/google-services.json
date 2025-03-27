@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "91995083959",
+    "project_id": "alpha-app-2a332",
+    "storage_bucket": "alpha-app-2a332.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91995083959:android:33b382700e12226d716932",
+        "android_client_info": {
+          "package_name": "com.example.alpha_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQVk54yu55bNsUuXn0QtOm5oWkMN9orL0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
