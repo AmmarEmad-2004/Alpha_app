@@ -4,7 +4,9 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepoImplementation implements AuthRepo {
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _firebaseAuth ;
+
+  AuthRepoImplementation(this._firebaseAuth);
   @override
   Future<Either<AuthFailure, void>> createUser(
     String email,

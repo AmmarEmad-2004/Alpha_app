@@ -2,19 +2,29 @@ import 'package:alpha_app/core/utils/constants.dart';
 import 'package:alpha_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+class CustomTextFormField extends StatelessWidget {
+  const CustomTextFormField({
     super.key,
     required this.hintText,
     required this.icon,
     this.obscureText = false,
+    this.onChanged,
   });
   final String hintText;
   final IconData icon;
   final bool obscureText;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'this field is required';
+        } else {
+          return null;
+        }
+      },
+      onChanged: onChanged,
       obscureText: obscureText,
       showCursor: true,
       cursorColor: formColor,
