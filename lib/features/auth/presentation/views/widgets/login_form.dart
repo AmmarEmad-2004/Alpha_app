@@ -41,7 +41,7 @@ class LoginFormState extends State<LoginForm> {
           children: [
             CustomTextFormField(
               hintText: 'Email',
-              icon: isEmailEntered ? Icons.check_circle : Icons.cancel,
+              icon: isEmailEntered ? Icons.check_circle_sharp : Icons.cancel,
               onChanged: (value) {
                 setState(() {
                   email = value;
@@ -52,7 +52,7 @@ class LoginFormState extends State<LoginForm> {
             const SizedBox(height: 25),
             PasswordTextFormField(
               hintText: 'Password',
-              icon: isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+              icon: isPasswordVisible ? Icons.visibility_off : Icons.visibility,
               obscureText: !isPasswordVisible,
               onPressed: () {
                 setState(() {
@@ -60,9 +60,7 @@ class LoginFormState extends State<LoginForm> {
                 });
               },
               onChanged: (value) {
-                setState(() {
-                  password = value;
-                });
+                password = value;
               },
             ),
             const SizedBox(height: 55),
