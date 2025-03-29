@@ -19,7 +19,7 @@ class LoginForm extends StatefulWidget {
 
 class LoginFormState extends State<LoginForm> {
   String? email, password;
- GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isPasswordVisible = false;
   bool isEmailEntered = false;
 
@@ -28,10 +28,11 @@ class LoginFormState extends State<LoginForm> {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
-          ShowSnackBar(text: 'Successfully Logged In');
+          ShowSnackBar.show(context, 'Successfully Logged In');
           GoRouter.of(context).push(AppRouters.homeView);
         } else if (state is LoginFailuer) {
-          ShowSnackBar(text: state.message);
+          // ShowSnackBar(text: state.message);
+          ShowSnackBar.show(context, state.message);
         }
       },
       child: Form(
@@ -40,7 +41,7 @@ class LoginFormState extends State<LoginForm> {
           children: [
             CustomTextFormField(
               hintText: 'Email',
-              icon: isEmailEntered ? Icons.check : Icons.cancel,
+              icon: isEmailEntered ? Icons.check_circle : Icons.cancel,
               onChanged: (value) {
                 setState(() {
                   email = value;
@@ -51,7 +52,7 @@ class LoginFormState extends State<LoginForm> {
             const SizedBox(height: 25),
             PasswordTextFormField(
               hintText: 'Password',
-              icon: isPasswordVisible ? Icons.visibility_off : Icons.visibility,
+              icon: isPasswordVisible ? Icons.visibility : Icons.visibility_off,
               obscureText: !isPasswordVisible,
               onPressed: () {
                 setState(() {

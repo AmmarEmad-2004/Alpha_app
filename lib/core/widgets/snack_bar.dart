@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
-class ShowSnackBar extends StatelessWidget {
-  const ShowSnackBar({super.key, required this.text});
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return ScaffoldMessenger(child: SnackBar(content: Text(text)));
+class ShowSnackBar {
+  static void show(BuildContext context, String message, {Color backgroundColor = Colors.red}) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar(); // إخفاء أي SnackBar سابقة
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: const TextStyle(color: Colors.white), // تخصيص النص
+        ),
+        backgroundColor: backgroundColor,
+        duration: const Duration(seconds: 3),
+      ),
+    );
   }
 }

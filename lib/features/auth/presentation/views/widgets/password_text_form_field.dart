@@ -8,7 +8,8 @@ class PasswordTextFormField extends StatelessWidget {
     required this.hintText,
     required this.icon,
     this.obscureText = false,
-    this.onChanged, this.onPressed,
+    this.onChanged,
+    this.onPressed,
   });
   final String hintText;
   final IconData icon;
@@ -34,13 +35,20 @@ class PasswordTextFormField extends StatelessWidget {
         hintStyle: Styles.textStyle16.copyWith(
           color: formColor.withValues(alpha: 0.5),
         ),
-        suffixIcon: IconButton(onPressed: onPressed, icon: Icon(icon, color: iColor),),
+        suffixIcon: IconButton(
+          onPressed: onPressed,
+          icon: Icon(icon, color: iColor),
+        ),
         fillColor: Colors.grey.shade400,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: formColor.withValues(alpha: 0.5)),
           borderRadius: BorderRadius.circular(5),
         ),
         focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: formColor.withValues(alpha: 0.5)),
+          borderRadius: BorderRadius.circular(5),
+        ),
+        border: OutlineInputBorder(
           borderSide: BorderSide(color: formColor.withValues(alpha: 0.5)),
           borderRadius: BorderRadius.circular(5),
         ),
