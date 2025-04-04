@@ -2,7 +2,6 @@ import 'package:alpha_app/features/auth/data/repos/auth_repo_implementation.dart
 import 'package:get_it/get_it.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 final getIt = GetIt.instance;
 
 void setup() {

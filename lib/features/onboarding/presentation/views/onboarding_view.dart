@@ -7,9 +7,6 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kPrimaryColor,
-      body: OnboardingViewBody(),
-    );
+    return Scaffold(backgroundColor: kPrimaryColor, body: OnboardingViewBody());
   }
 }

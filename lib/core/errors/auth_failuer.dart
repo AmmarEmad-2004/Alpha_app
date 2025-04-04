@@ -11,7 +11,9 @@ class FirebaseAuthFailure extends AuthFailure {
   FirebaseAuthFailure({required super.message});
 
   /// **Factory لتحليل الأخطاء القادمة من FirebaseAuthException**
-  factory FirebaseAuthFailure.fromFirebaseAuthException(FirebaseAuthException e) {
+  factory FirebaseAuthFailure.fromFirebaseAuthException(
+    FirebaseAuthException e,
+  ) {
     switch (e.code) {
       case 'user-not-found':
         return FirebaseAuthFailure(message: "No user found for that email.");
@@ -24,8 +26,9 @@ class FirebaseAuthFailure extends AuthFailure {
       case 'invalid-email':
         return FirebaseAuthFailure(message: "The email format is invalid.");
       default:
-        return FirebaseAuthFailure(message: "Authentication error: ${e.message}");
+        return FirebaseAuthFailure(
+          message: "Authentication error: ${e.message}",
+        );
     }
   }
 }
-

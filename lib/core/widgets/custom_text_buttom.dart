@@ -11,7 +11,8 @@ class CustomTextButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.sideColor = kPrimaryColor,
     this.onPressed,
-    this.height = 50,required this.style,
+    this.height = 50,
+    required this.style,
   });
 
   final String text;

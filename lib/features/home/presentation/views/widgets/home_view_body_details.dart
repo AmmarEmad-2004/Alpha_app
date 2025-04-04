@@ -6,9 +6,7 @@ import 'package:alpha_app/features/home/presentation/views/widgets/search_text_f
 import 'package:flutter/material.dart';
 
 class HomeViewBodyDetails extends StatelessWidget {
-  const HomeViewBodyDetails({
-    super.key,
-  });
+  const HomeViewBodyDetails({super.key});
 
   @override
   Widget build(BuildContext context) {

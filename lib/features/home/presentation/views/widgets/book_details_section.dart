@@ -39,7 +39,6 @@ class BooksDetailsSection extends StatelessWidget {
                   'The Catcher in the Rye is a novel by J. D. Salinger, partially published in serial form in 1945The Catcher in the Rye is a novel by J. D. Salinger, partially published in serial form in 1945The Catcher in the Rye is a novel by J. D. Salinger, partially published in serial form in 1945The Catcher in the Rye is a novel by J. D. Salinger, partially published in serial form in 1945',
                   style: Styles.textStyleReqular.copyWith(fontSize: 14),
                 ),
-                
               ],
             ),
           ],

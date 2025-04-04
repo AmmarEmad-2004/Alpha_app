@@ -49,5 +49,3 @@ class SignUpViewBody extends StatelessWidget {
     );
   }
 }
-
-
