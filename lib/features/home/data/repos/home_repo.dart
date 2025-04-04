@@ -5,7 +5,9 @@ import 'package:alpha_app/features/home/data/models/category_model/category_mode
 import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
-  Future<Either<Failuers,List<CategoryModel>>> getCategoryBooks();
-  Future<Either<ApiFailure,List<BookModel>>> getBooksByCategory(String categoryName);
-  Future<Either<ApiFailure,List<BookModel>>> getNewArrivalsBooks();
+  Future<Either<Failuers, List<CategoryModel>>> getCategoryBooks();
+  Future<Either<ApiFailure, List<BookModel>>> getBooksByCategory(
+    String categoryName,
+  );
+  Future<Either<ApiFailure, List<BookModel>>> getNewArrivalsBooks();
 }
