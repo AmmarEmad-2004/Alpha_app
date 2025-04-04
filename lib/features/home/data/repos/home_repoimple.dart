@@ -2,7 +2,7 @@ import 'package:alpha_app/core/errors/api_failuer.dart';
 import 'package:alpha_app/core/errors/failuers.dart';
 import 'package:alpha_app/core/utils/api_service.dart';
 import 'package:alpha_app/features/home/data/models/book_model/book_model.dart';
-import 'package:alpha_app/features/home/data/models/book_model/category_model.dart';
+import 'package:alpha_app/features/home/data/models/category_model/category_model.dart';
 import 'package:alpha_app/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
