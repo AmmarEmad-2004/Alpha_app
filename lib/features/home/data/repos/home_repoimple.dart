@@ -17,8 +17,7 @@ class HomeRepoimple implements HomeRepo {
   ) async {
     try {
       var data = await apiService.get(
-        endPoint:
-            'volumes?q=subject:$categoryName&filter=full&maxResults=20&orderBy=newest',
+        endPoint: 'volumes?q=subject:$categoryName&filter=full&maxResults=20',
       );
 
       List<BookModel> books = [];
@@ -56,8 +55,23 @@ class HomeRepoimple implements HomeRepo {
   }
 
   @override
-  Future<Either<ApiFailure, List<BookModel>>> getNewArrivalsBooks() {
-    // TODO: implement getNewArrivalsBooks
-    throw UnimplementedError();
+  Future<Either<ApiFailure, List<BookModel>>> getNewArrivalsBooks() async {
+    try {
+      var data = await apiService.get(
+        endPoint: 'volumes?q=books&filter=full&maxResults=20&orderBy=newest',
+      );
+
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(message: e.toString()));
+      }
+    }
   }
 }
