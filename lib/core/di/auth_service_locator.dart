@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 final getIt = GetIt.instance;
 
-void setup() {
+void authSetup() {
   // تسجيل FirebaseAuth أولاً
   getIt.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
 

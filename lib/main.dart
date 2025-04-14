@@ -1,4 +1,5 @@
 import 'package:alpha_app/core/di/auth_service_locator.dart';
+import 'package:alpha_app/core/di/home_service_locator.dart';
 import 'package:alpha_app/core/utils/app_routers.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -8,7 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  setup();
+  authSetup();
+  homeSetup();
   runApp(AlphaApp());
 }
 

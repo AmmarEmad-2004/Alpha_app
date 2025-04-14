@@ -13,8 +13,9 @@ final class CategoryLoading extends CategoryState {}
 
 final class CategorySuccess extends CategoryState {
   final List<CategoryModel> categories;
+  final CategoryModel? selectedCategory;
 
-  const CategorySuccess({required this.categories});
+  const CategorySuccess({this.selectedCategory, required this.categories});
 }
 
 final class CategoryFailuer extends CategoryState {

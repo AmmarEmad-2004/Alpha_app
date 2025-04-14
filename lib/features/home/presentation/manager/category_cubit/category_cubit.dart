@@ -8,6 +8,7 @@ part 'category_state.dart';
 class CategoryCubit extends Cubit<CategoryState> {
   CategoryCubit(this.homeRepo) : super(CategoryInitial());
   final HomeRepo homeRepo;
+   CategoryModel? selectedCategory;
 
   Future<void> getCategory() async {
     emit(CategoryLoading());
@@ -15,6 +16,16 @@ class CategoryCubit extends Cubit<CategoryState> {
     result.fold(
       (failuer) => emit(CategoryFailuer(message: failuer.message)),
       (categories) => emit(CategorySuccess(categories: categories)),
+    );
+  }
+
+  void selectCatecory(CategoryModel category) {
+    selectedCategory = category;
+    emit(
+      CategorySuccess(
+        categories: (state as CategorySuccess).categories,
+        selectedCategory: selectedCategory,
+      ),
     );
   }
 }
