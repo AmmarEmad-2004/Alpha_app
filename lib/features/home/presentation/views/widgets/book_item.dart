@@ -1,13 +1,15 @@
 import 'package:alpha_app/core/utils/app_routers.dart';
 import 'package:alpha_app/core/utils/styles.dart';
+import 'package:alpha_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookItem extends StatelessWidget {
   const BookItem({
     super.key,
-    this.crossAxisAlignment = CrossAxisAlignment.start,
+    this.crossAxisAlignment = CrossAxisAlignment.start, required this.bookModel,
   });
+  final BookModel bookModel;
   final CrossAxisAlignment crossAxisAlignment;
   @override
   Widget build(BuildContext context) {
