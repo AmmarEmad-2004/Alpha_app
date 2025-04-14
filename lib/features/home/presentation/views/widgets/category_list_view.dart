@@ -23,16 +23,17 @@ class CategoryListView extends StatelessWidget {
                 final category = state.categories[index];
                 final isSelected = category == state.selectedCategory;
                 return GestureDetector(
-                  onTap: () {
-                    
-                  },
+                  onTap: () {},
                   child: Padding(
                     padding: const EdgeInsets.only(right: 36),
                     child: Text(
                       category.categoryName,
-                      style:  isSelected
-                            ? Styles.textStyle16.copyWith(color: Colors.blue) // تغيير اللون إذا كانت الفئة مختارة
-                            : Styles.textStyle16,
+                      style:
+                          isSelected
+                              ? Styles.textStyle16.copyWith(
+                                color: Colors.blue,
+                              ) // تغيير اللون إذا كانت الفئة مختارة
+                              : Styles.textStyle16,
                     ),
                   ),
                 );

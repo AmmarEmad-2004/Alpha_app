@@ -1,17 +1,21 @@
 import 'package:alpha_app/core/utils/styles.dart';
+import 'package:alpha_app/features/home/data/models/book_model/book_model.dart';
 import 'package:alpha_app/features/home/presentation/views/widgets/book_item.dart';
 import 'package:flutter/material.dart';
 
 class BooksDetailsSection extends StatelessWidget {
-  const BooksDetailsSection({super.key});
-
+  const BooksDetailsSection({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: SingleChildScrollView(
         child: Column(
           children: [
-            BookItem(crossAxisAlignment: CrossAxisAlignment.center),
+            BookItem(
+              bookModel: bookModel,
+              crossAxisAlignment: CrossAxisAlignment.center,
+            ),
             SizedBox(height: 20),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

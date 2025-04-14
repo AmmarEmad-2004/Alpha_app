@@ -8,12 +8,15 @@ sealed class NewArrivalBooksState extends Equatable {
 }
 
 final class NewArrivalBooksInitial extends NewArrivalBooksState {}
+
 final class NewArrivalBooksLoading extends NewArrivalBooksState {}
+
 final class NewArrivalBooksSuccess extends NewArrivalBooksState {
   final List<BookModel> books;
 
   const NewArrivalBooksSuccess({required this.books});
 }
+
 final class NewArrivalBooksFailuer extends NewArrivalBooksState {
   final String message;
 

@@ -1,13 +1,14 @@
-import 'package:alpha_app/core/utils/app_routers.dart';
 import 'package:alpha_app/core/utils/styles.dart';
 import 'package:alpha_app/features/home/data/models/book_model/book_model.dart';
+import 'package:alpha_app/features/home/presentation/views/book_details_view.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class BookItem extends StatelessWidget {
   const BookItem({
     super.key,
-    this.crossAxisAlignment = CrossAxisAlignment.start, required this.bookModel,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
+    required this.bookModel,
   });
   final BookModel bookModel;
   final CrossAxisAlignment crossAxisAlignment;
@@ -18,7 +19,14 @@ class BookItem extends StatelessWidget {
 
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).push(AppRouters.bookDetailsView);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return BookDetailsView(bookModel: bookModel);
+              },
+            ),
+          );
         },
         child: Column(
           crossAxisAlignment: crossAxisAlignment,
@@ -28,14 +36,13 @@ class BookItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 color: Colors.red,
               ),
-              child: Image.asset(
-                'assets/images/test.png',
-                height: 250,
-                width: 160,
+              child: CachedNetworkImage(
+                errorWidget: (context, url, error) => Icon(Icons.error),
+                imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
               ),
             ),
             Text(
-              'Catcher in the Rye',
+              bookModel.volumeInfo!.title!,
               style: Styles.textStyle16.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Color(0xff333333),

@@ -15,12 +15,11 @@ class BooksListView extends StatelessWidget {
       child: BlocBuilder<BooksCubit, BooksState>(
         builder: (context, state) {
           if (state is BooksSuccess) {
-            final books = state.books;
             return ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: books.length,
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return BookItem(bookModel: books[index]);
+                return BookItem(bookModel: state.books[index]);
               },
             );
           } else if (state is BooksFailuer) {

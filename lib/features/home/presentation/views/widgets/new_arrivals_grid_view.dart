@@ -12,26 +12,29 @@ class NewArrivalsListVew extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NewArrivalBooksCubit, NewArrivalBooksState>(
       builder: (context, state) {
-    if (state is NewArrivalBooksSuccess){
-      final books = state.books;
-       return SliverGrid.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 6,
-            childAspectRatio: .55,
-          ),
+        if (state is NewArrivalBooksSuccess) {
+         
+          return SliverGrid.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 6,
+              childAspectRatio: .55,
+            ),
 
-          itemCount: books.length,
-          itemBuilder: (context, index) {
-            return BookItem(bookModel: books[index],);
-          },
-        );
-    }else if (state is NewArrivalBooksFailuer){
-       return ErrorMessage(errMessage: state.message);
-      }else{
-        return LoadingWidget();
-      }
+            itemCount: state.books.length,
+            itemBuilder: (context, index) {
+              return BookItem(bookModel: state.books[index]);
+            },
+          );
+        } else if (state is NewArrivalBooksFailuer) {
+          return SliverToBoxAdapter(
+            child: ErrorMessage(errMessage: state.message),
+          );
+        } else {
+          return SliverToBoxAdapter(child: LoadingWidget());
+        }
+      },
     );
   }
 }

@@ -24,7 +24,10 @@ class ServerFailure extends ApiFailure {
 
       case DioExceptionType.badResponse:
         if (dioError.response != null) {
-          return ServerFailure.fromResponse(dioError.response!.statusCode!, dioError.response!.data);
+          return ServerFailure.fromResponse(
+            dioError.response!.statusCode!,
+            dioError.response!.data,
+          );
         }
         return ServerFailure(message: 'Bad Response, but no data available');
 
@@ -35,11 +38,11 @@ class ServerFailure extends ApiFailure {
         return ServerFailure(message: 'Connection Error');
 
       case DioExceptionType.unknown:
-        if (dioError.message != null && dioError.message!.contains('SocketException')) {
+        if (dioError.message != null &&
+            dioError.message!.contains('SocketException')) {
           return ServerFailure(message: 'No Internet Connection');
         }
         return ServerFailure(message: 'Unexpected Error Occurred');
-        
     }
   }
   factory ServerFailure.fromResponse(int status, dynamic response) {
@@ -51,8 +54,8 @@ class ServerFailure extends ApiFailure {
       return ServerFailure(message: 'Internal Server Error,Please try later');
     } else {
       return ServerFailure(
-          message: 'Oops! Something went wrong, Please try later');
+        message: 'Oops! Something went wrong, Please try later',
+      );
     }
   }
- 
 }
