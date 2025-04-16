@@ -15,10 +15,13 @@ class HomeRepoimple implements HomeRepo {
   Future<Either<ApiFailure, List<BookModel>>> getBooksByCategory(
     String categoryName,
   ) async {
+    
     try {
       var data = await apiService.get(
         endPoint: 'volumes?q=subject:$categoryName&filter=full&maxResults=20',
       );
+      
+      
 
       List<BookModel> books = [];
 
@@ -27,6 +30,7 @@ class HomeRepoimple implements HomeRepo {
       }
       return right(books);
     } catch (e) {
+      
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
       } else {
@@ -60,13 +64,14 @@ class HomeRepoimple implements HomeRepo {
       var data = await apiService.get(
         endPoint: 'volumes?q=books&filter=full&maxResults=20&orderBy=newest',
       );
-
+print("البيانات الراجعة: $data");
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
       }
       return right(books);
     } catch (e) {
+      print("خطأ أثناء جلب الكتب: $e");
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
       } else {

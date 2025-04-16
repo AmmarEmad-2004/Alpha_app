@@ -12,7 +12,10 @@ class BooksCubit extends Cubit<BooksState> {
 
   Future<void> getBooksByCategory(String categoryName) async {
     emit(BooksLoading());
-    var result = await homeRepo.getBooksByCategory(categoryName);
+        print("طلب كتب لفئة: $categoryName");  // ✅ للتأكد من بدء الدالة
+    final result = await homeRepo.getBooksByCategory(categoryName);
+    print("عدد الكتب: ${result.length}");
+    // var result = await homeRepo.getBooksByCategory(categoryName);
     result.fold(
       (failuer) => emit(BooksFailuer(message: failuer.message)),
       (books) => emit(BooksSuccess(books: books)),

@@ -37,19 +37,22 @@ class BookItem extends StatelessWidget {
                 color: Colors.red,
               ),
               child: CachedNetworkImage(
-                errorWidget: (context, url, error) => Icon(Icons.error),
-                imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!,
+                imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? '',
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error_outline_rounded),
               ),
             ),
             Text(
-              bookModel.volumeInfo!.title!,
+              bookModel.volumeInfo?.title ?? 'No Title',
               style: Styles.textStyle16.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Color(0xff333333),
               ),
             ),
             Text(
-              'J.D. Salinger',
+              bookModel.volumeInfo?.authors?.isNotEmpty == true
+                  ? bookModel.volumeInfo!.authors![0]
+                  : 'Unknown Author',
               style: Styles.textStyleReqular.copyWith(fontSize: 12),
             ),
             Text('P198.00', style: Styles.textStyleReqular),
