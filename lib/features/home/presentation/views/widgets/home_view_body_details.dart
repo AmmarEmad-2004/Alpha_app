@@ -37,7 +37,7 @@ class HomeViewBodyDetails extends StatelessWidget {
             ],
           ),
         ),
-        NewArrivalsListVew(),
+        NewArrivalsListView(),
       ],
     );
   }

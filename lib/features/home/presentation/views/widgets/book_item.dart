@@ -1,4 +1,5 @@
 import 'package:alpha_app/core/utils/styles.dart';
+import 'package:alpha_app/core/widgets/loading_widget.dart';
 import 'package:alpha_app/features/home/data/models/book_model/book_model.dart';
 import 'package:alpha_app/features/home/presentation/views/book_details_view.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -31,15 +32,13 @@ class BookItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: crossAxisAlignment,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Colors.red,
-              ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
               child: CachedNetworkImage(
                 imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? '',
-                placeholder: (context, url) => CircularProgressIndicator(),
-                errorWidget: (context, url, error) => Icon(Icons.error_outline_rounded),
+                placeholder: (context, url) => LoadingWidget(),
+                errorWidget:
+                    (context, url, error) => Icon(Icons.error_outline_rounded),
               ),
             ),
             Text(
@@ -55,7 +54,7 @@ class BookItem extends StatelessWidget {
                   : 'Unknown Author',
               style: Styles.textStyleReqular.copyWith(fontSize: 12),
             ),
-            Text('P198.00', style: Styles.textStyleReqular),
+            Text( '${bookModel.volumeInfo!.pageCount}', style: Styles.textStyleReqular),
           ],
         ),
       ),

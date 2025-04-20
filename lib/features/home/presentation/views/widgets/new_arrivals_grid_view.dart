@@ -5,15 +5,15 @@ import 'package:alpha_app/features/home/presentation/views/widgets/book_item.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NewArrivalsListVew extends StatelessWidget {
-  const NewArrivalsListVew({super.key});
+class NewArrivalsListView extends StatelessWidget {
+  const NewArrivalsListView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewArrivalBooksCubit, NewArrivalBooksState>(
       builder: (context, state) {
         if (state is NewArrivalBooksSuccess) {
-         
+          
           return SliverGrid.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,

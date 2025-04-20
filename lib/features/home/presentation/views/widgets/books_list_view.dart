@@ -15,7 +15,6 @@ class BooksListView extends StatelessWidget {
       child: BlocBuilder<BooksCubit, BooksState>(
         builder: (context, state) {
           if (state is BooksSuccess) {
-            print("عدد الكتب: ${state.books.length}");
             return ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: state.books.length,

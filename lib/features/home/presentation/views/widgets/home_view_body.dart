@@ -13,8 +13,8 @@ class HomeViewBody extends StatelessWidget {
     return BlocProvider(
       create:
           (context) => NewArrivalBooksCubit(
-            getIt.get<HomeRepoimple>()..getNewArrivalsBooks(),
-          ),
+            getIt.get<HomeRepoimple>()
+          )..getNewArrivalBooks(),
       child: Padding(
         padding: const EdgeInsets.only(left: 16, top: 32),
         child: HomeViewBodyDetails(),

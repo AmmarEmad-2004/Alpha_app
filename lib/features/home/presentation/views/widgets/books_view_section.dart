@@ -20,7 +20,7 @@ class BooksViewSection extends StatelessWidget {
             create:
                 (context) =>
                     BooksCubit(getIt.get<HomeRepoimple>())
-                      ..getBooksByCategory('Fiction'),
+                      ..getBooksByCategory('fiction'),
           ),
           BlocProvider(
             create:
